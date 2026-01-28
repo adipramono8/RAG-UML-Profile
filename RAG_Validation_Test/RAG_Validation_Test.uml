@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RAG_UML_Profile="http:///schemas/RAG_UML_Profile/_icDswPwKEfCvc-ErwVKNug/13" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/RAG_UML_Profile/_icDswPwKEfCvc-ErwVKNug/13 ../RAG_UML_Profile/RAG_UML_Profile.profile.uml#_icJzYPwKEfCvc-ErwVKNug">
+  <uml:Model xmi:id="_LXUbUPtFEfCZcMKu6LnuUw" name="RAG_Validation_Test">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_LcBVIPtFEfCZcMKu6LnuUw">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Component" xmi:id="_gdcrEPtGEfCZcMKu6LnuUw" name="Component3" visibility="public">
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_3FqhMPteEfCsv4DCwYp2eQ" client="_gdcrEPtGEfCZcMKu6LnuUw" supplier="_qHzZEPtdEfCsv4DCwYp2eQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="_qHzZEPtdEfCsv4DCwYp2eQ" name="ChromaDB"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_2UuJAPv5EfCsv4DCwYp2eQ" name="Custom_LLM"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_8F3EYPv9EfCsv4DCwYp2eQ" name="Component6">
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_XCaxcPv-EfCsv4DCwYp2eQ" client="_8F3EYPv9EfCsv4DCwYp2eQ" supplier="_2UuJAPv5EfCsv4DCwYp2eQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_rnRxEPwIEfCvo4ZDxUs-PQ" name="JSON_Prompt" fileName="JSON_Prompt"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_fZRtsPwJEfCvo4ZDxUs-PQ" client="_LXUbUPtFEfCZcMKu6LnuUw" supplier="_2UuJAPv5EfCsv4DCwYp2eQ"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5F3LMPwKEfCvc-ErwVKNug">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5F3LMfwKEfCvc-ErwVKNug" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../RAG_UML_Profile/RAG_UML_Profile.profile.uml#_icJzYPwKEfCvc-ErwVKNug"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="../RAG_UML_Profile/RAG_UML_Profile.profile.uml#_FCiX4PqzEfCZcMKu6LnuUw"/>
+    </profileApplication>
+  </uml:Model>
+  <RAG_UML_Profile:PromptTemplate xmi:id="_6XyGEPwKEfCvc-ErwVKNug" templateString="user_prompt" requiredVariables="user_prompt" outputFormat="JSON" base_Artifact="_rnRxEPwIEfCvo4ZDxUs-PQ"/>
+  <RAG_UML_Profile:Chunker xmi:id="_98eU0PwKEfCvc-ErwVKNug" embeddingModel="text-embedding-3-small" dimension="1536" base_Component="_gdcrEPtGEfCZcMKu6LnuUw"/>
+  <RAG_UML_Profile:VectorStore xmi:id="__K8TEPwKEfCvc-ErwVKNug" supportedDimension="1536" metricType="Cosine" base_Component="_qHzZEPtdEfCsv4DCwYp2eQ"/>
+  <RAG_UML_Profile:Consolidator xmi:id="_AQJAkPwLEfCvc-ErwVKNug" maxContextWindowSize="4096" Strategy="MapReduce" base_Component="_8F3EYPv9EfCsv4DCwYp2eQ"/>
+  <RAG_UML_Profile:LLM_Reader xmi:id="_BMTG0PwLEfCvc-ErwVKNug" contextWindowSize="4096" expectedInputFormat="text" base_Component="_2UuJAPv5EfCsv4DCwYp2eQ"/>
+</xmi:XMI>
